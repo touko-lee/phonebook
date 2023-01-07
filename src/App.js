@@ -14,6 +14,13 @@ const App = () => {
 
   const addPerson = (event) => {
     event.preventDefault()
+
+    const findName = persons.find(person => person.name === newName)
+    if(findName){
+      window.alert(newName + " is already in the phonebook")
+      return
+    }
+
     const Person = {
       name: newName,
       id: persons.length + 1
@@ -26,6 +33,7 @@ const App = () => {
     setNewName(event.target.value)
   }
 
+  // part 3
   return (
     <div>
       <h2>Phonebook</h2>
